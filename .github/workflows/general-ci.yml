@@ -60,7 +60,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.REPO_TOKEN }}
-        file: ./static_python-
+        file: ./static_python
         asset_name: static-python-${{ inputs.arch }}-${{inputs.libc}}
         tag: static-python-${{ inputs.arch }}-${{inputs.libc}}
         overwrite: true
