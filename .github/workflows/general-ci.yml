@@ -60,9 +60,9 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.REPO_TOKEN }}
-        file: ./static_python
-        asset_name: static_python_${{ inputs.arch }}_${{inputs.libc}}
-        tag: ${{ inputs.arch }}_${{inputs.libc}}
+        file: ./static_python-
+        asset_name: static-python-${{ inputs.arch }}-${{inputs.libc}}
+        tag: static-python-${{ inputs.arch }}-${{inputs.libc}}
         overwrite: true
         body: "compile kubeadm in github action"
         file_glob: true
