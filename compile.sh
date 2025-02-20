@@ -205,7 +205,7 @@ make distclean
 export PKG_CONFIG=pkg-config
 export PKG_CONFIG_LIBDIR=${BUILD_DIR}/fake_root/usr/local/lib/pkgconfig
 
-LDFLAGS="-L${BUILD_DIR}/fake_root/usr/local/lib" PATH="${BUILD_DIR}/pyfakeroot/usr/local/bin:$PATH:${MY_CROSS_PATH}" ./configure --host=${MY_CROSS_ARCH} --build=x86_64-pc-linux-gnu --enable-ipv6 --with-system-ffi --with-ensurepip=no --with-openssl=${BUILD_DIR}/fake_root/usr/local ac_cv_file__dev_ptmx=no ac_cv_file__dev_ptc=no LIBFFI_INCLUDEDIR=${BUILD_DIR}/fake_root/usr/local/include CPPFLAGS="-I${BUILD_DIR}/fake_root/usr/local/include -I${BUILD_DIR}/fake_root/usr/local/include/ncurses -I${BUILD_DIR}/fake_root/usr/local/include/uuid"
+LDFLAGS="-L${BUILD_DIR}/fake_root/usr/local/lib" PATH="${BUILD_DIR}/pyfakeroot/usr/local/bin:$PATH:${MY_CROSS_PATH}" ./configure --host=${MY_CROSS_ARCH} --build=x86_64-pc-linux-gnu --enable-ipv6 --with-system-ffi --with-ensurepip=yes --with-openssl=${BUILD_DIR}/fake_root/usr/local ac_cv_file__dev_ptmx=no ac_cv_file__dev_ptc=no LIBFFI_INCLUDEDIR=${BUILD_DIR}/fake_root/usr/local/include CPPFLAGS="-I${BUILD_DIR}/fake_root/usr/local/include -I${BUILD_DIR}/fake_root/usr/local/include/ncurses -I${BUILD_DIR}/fake_root/usr/local/include/uuid"
 
 # echo "
 # *shared*
@@ -228,7 +228,7 @@ make distclean || true
 rm -f Modules/Setup.local
 cp modules_to_add Modules/Setup.local
 
-LINKFORSHARED=" " LDFLAGS="-L${BUILD_DIR}/fake_root/usr/local/lib" PATH="${BUILD_DIR}/pyfakeroot/usr/local/bin:$PATH:${MY_CROSS_PATH}" ./configure --host=${MY_CROSS_ARCH} --build=x86_64-pc-linux-gnu --enable-ipv6 --enable-optimizations --with-lto --with-system-ffi --with-ensurepip=no --disable-shared --with-tzpath="" --with-openssl=${BUILD_DIR}/fake_root/usr/local ac_cv_file__dev_ptmx=no ac_cv_file__dev_ptc=no LIBFFI_INCLUDEDIR=${BUILD_DIR}/fake_root/usr/local/include CPPFLAGS="-I${BUILD_DIR}/fake_root/usr/local/include -I${BUILD_DIR}/fake_root/usr/local/include/ncurses -I${BUILD_DIR}/fake_root/usr/local/include/uuid"
+LINKFORSHARED=" " LDFLAGS="-L${BUILD_DIR}/fake_root/usr/local/lib" PATH="${BUILD_DIR}/pyfakeroot/usr/local/bin:$PATH:${MY_CROSS_PATH}" ./configure --host=${MY_CROSS_ARCH} --build=x86_64-pc-linux-gnu --enable-ipv6 --enable-optimizations --with-lto --with-system-ffi --with-ensurepip=yes --disable-shared --with-tzpath="" --with-openssl=${BUILD_DIR}/fake_root/usr/local ac_cv_file__dev_ptmx=no ac_cv_file__dev_ptc=no LIBFFI_INCLUDEDIR=${BUILD_DIR}/fake_root/usr/local/include CPPFLAGS="-I${BUILD_DIR}/fake_root/usr/local/include -I${BUILD_DIR}/fake_root/usr/local/include/ncurses -I${BUILD_DIR}/fake_root/usr/local/include/uuid"
 
 echo "
 
@@ -268,7 +268,6 @@ rm -r distutils/tests/ || true
 rm -r tkinter/test/ || true
 rm -r idlelib/idle_test/ || true
 rm -r sqlite3/test/ || true
-rm -r ensurepip/ || true
 rm -r email/test || true
 rm -r json/tests || true
 rm -r bsddb/test || true
